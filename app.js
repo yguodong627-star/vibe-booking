@@ -52,15 +52,21 @@
   }
 
   function buildSummary(data) {
-    return [
+    var lines = [
       "【99元文字诊断】",
-      "身份：" + data.who,
-      "卡点：" + data.stuck,
-      "试过：" + data.tried,
+      "个人/小店：" + data.who,
+      "行业或品类：" + data.industry,
+      "现在卡在哪：" + data.stuck,
+      "试过什么：" + data.tried,
       "本周最想解决：" + data.thisweek,
-      "方便联系的微信：" + data.wechatContact,
-      "—— 来自落地页诊断问卷（未自动提交服务器）",
-    ].join("\n");
+    ];
+    if (data.links) {
+      lines.push("现成链接：" + data.links);
+    }
+    lines.push("预算心理价：" + data.budget);
+    lines.push("微信联系方式：" + data.wechatContact);
+    lines.push("—— 来自落地页诊断问卷（未自动提交服务器）");
+    return lines.join("\n");
   }
 
   if (form) {
@@ -72,9 +78,12 @@
       }
       var data = {
         who: (form.who.value || "").trim(),
+        industry: (form.industry.value || "").trim(),
         stuck: (form.stuck.value || "").trim(),
         tried: (form.tried.value || "").trim(),
         thisweek: (form.thisweek.value || "").trim(),
+        links: (form.links.value || "").trim(),
+        budget: (form.budget.value || "").trim(),
         wechatContact: (form.wechatContact.value || "").trim(),
       };
       summaryEl.textContent = buildSummary(data);

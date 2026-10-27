@@ -40,8 +40,8 @@
         <p class="eyebrow">主推 · 企业落地页 / 小工具定制</p>
         <h1>一页说清价值，<br />或做一个能跑通的小工具。</h1>
         <p class="hero-lead">
-          面向小店、独立顾问与轻业务团队：定制落地页、预约页或浏览器端小工具，
-          可升级内容包月维护。先用 <strong>99 元文字诊断</strong> 对齐问题，再决定要不要做。
+          面向小店、独立顾问与轻业务团队：定制落地页、预约页或浏览器端小工具，可升级内容包月。
+          花 <strong>99</strong> 填短问卷，得一页对着你生意写的诊断——卡在哪、要不要做页/包月、这周最小改哪两步。
         </p>
         <div class="hero-actions">
           <a href="#offer" class="btn btn-primary">了解落地页 / 定制</a>
@@ -100,13 +100,13 @@
         <header class="section-head light">
           <p class="eyebrow">钩子 · ¥99</p>
           <h2>文字诊断问卷</h2>
-          <p class="section-desc">几乎不做实时聊天。填完后<strong>不会上传服务器</strong>——页面展示微信号与可复制摘要，你粘贴到微信即可。</p>
+          <p class="section-desc">花 99 填短问卷，得一页对着你生意写的诊断——卡在哪、要不要做页/包月、这周最小改哪两步。几乎不做实时聊天；填完<strong>不会上传服务器</strong>，页面只展示微信号与可复制摘要。</p>
         </header>
 
         <div class="booking-panel">
           <form id="diagnosis-form" class="booking-form" novalidate>
             <div class="field">
-              <label for="who">你是个人还是小店？</label>
+              <label for="who">个人 / 小店</label>
               <select id="who" name="who" required>
                 <option value="">请选择</option>
                 <option value="个人副业 / 自由职业">个人副业 / 自由职业</option>
@@ -116,19 +116,38 @@
               </select>
             </div>
             <div class="field">
+              <label for="industry">行业或品类</label>
+              <input id="industry" name="industry" type="text" required placeholder="例如：美甲 / 摄影 / 私厨 / 顾问 / 本地生活" />
+            </div>
+            <div class="field">
               <label for="stuck">现在卡在哪？</label>
-              <textarea id="stuck" name="stuck" rows="3" required placeholder="例如：有服务但说不清；访客不知道怎么预约；想做落地页不知从哪写起"></textarea>
+              <textarea id="stuck" name="stuck" rows="3" required placeholder="例如：别人点进来看不懂；询价多但不约；没有固定预约入口"></textarea>
             </div>
             <div class="field">
               <label for="tried">试过什么？</label>
-              <textarea id="tried" name="tried" rows="2" required placeholder="例如：用过朋友圈 / 模板站 / 咨询过别人 / 还没动手"></textarea>
+              <textarea id="tried" name="tried" rows="2" required placeholder="例如：朋友圈、模板站、美团/小红书主页、咨询过别人、还没动手"></textarea>
             </div>
             <div class="field">
               <label for="thisweek">本周最想解决的一件事</label>
               <input id="thisweek" name="thisweek" type="text" required placeholder="只写一件最重要的" />
             </div>
             <div class="field">
-              <label for="wechat-contact">方便联系的微信</label>
+              <label for="links">有没有现成主页 / 美团 / 小红书链接？（选填）</label>
+              <input id="links" name="links" type="text" placeholder="贴一个我对着看；没有可留空" />
+            </div>
+            <div class="field">
+              <label for="budget">预算心理价</label>
+              <select id="budget" name="budget" required>
+                <option value="">请选择</option>
+                <option value="先只想付 99 看诊断">先只想付 99 看诊断</option>
+                <option value="落地页 3千以内可考虑">落地页 3千以内可考虑</option>
+                <option value="3千–8千可谈">3千–8千可谈</option>
+                <option value="包月内容也想了解">包月内容也想了解</option>
+                <option value="还不确定 / 看诊断再说">还不确定 / 看诊断再说</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="wechat-contact">微信联系方式</label>
               <input id="wechat-contact" name="wechatContact" type="text" required placeholder="你的微信号或手机号" autocomplete="username" />
             </div>
             <button type="submit" class="btn btn-primary btn-block">生成诊断摘要 · ¥99</button>
@@ -288,7 +307,7 @@
           </details>
           <details class="faq-item">
             <summary>99 元文字诊断怎么进行？</summary>
-            <p>填写本页问卷 → 复制摘要加微信 → 付款后以文字形式反馈。几乎不做实时连麦，适合先对齐问题再决定要不要做落地页。</p>
+            <p>填写本页短问卷 → 复制摘要加微信 → 付 99 后以文字形式反馈：卡在哪、要不要做页/包月、这周最小改哪两步。几乎不做实时连麦。</p>
           </details>
           <details class="faq-item">
             <summary>问卷提交后会发生什么？</summary>
