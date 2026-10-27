@@ -4,13 +4,7 @@
   /** 可编辑占位：把下面的微信号改成真实微信号 */
   var WECHAT_ID = "你的微信号";
 
-  var PATH_LABELS = {
-    consult: "轻咨询 / 陪跑",
-    custom: "企业落地页 / 小工具定制",
-    unsure: "还不确定，想先聊聊",
-  };
-
-  var form = document.getElementById("booking-form");
+  var form = document.getElementById("diagnosis-form");
   var cta = document.getElementById("wechat-cta");
   var summaryEl = document.getElementById("summary-text");
   var wechatIdEl = document.getElementById("wechat-id");
@@ -21,7 +15,7 @@
   var toastTimer = null;
 
   if (wechatIdEl) {
-    wechatIdEl.textContent = WECHAT_ID;
+    wechatIdEl.textContent = WECHAT_ID || "你的微信号";
   }
 
   function showToast(message) {
@@ -58,17 +52,15 @@
   }
 
   function buildSummary(data) {
-    var lines = [
-      "【预约咨询】",
-      "称呼：" + data.name,
-      "意向：" + (PATH_LABELS[data.path] || data.path),
-      "问题：" + data.topic,
-    ];
-    if (data.contact) {
-      lines.push("联系方式：" + data.contact);
-    }
-    lines.push("—— 来自落地页预约表单（未自动提交服务器）");
-    return lines.join("\n");
+    return [
+      "【99元文字诊断】",
+      "身份：" + data.who,
+      "卡点：" + data.stuck,
+      "试过：" + data.tried,
+      "本周最想解决：" + data.thisweek,
+      "方便联系的微信：" + data.wechatContact,
+      "—— 来自落地页诊断问卷（未自动提交服务器）",
+    ].join("\n");
   }
 
   if (form) {
@@ -79,10 +71,11 @@
         return;
       }
       var data = {
-        name: (form.name.value || "").trim(),
-        path: form.path.value,
-        topic: (form.topic.value || "").trim(),
-        contact: (form.contact.value || "").trim(),
+        who: (form.who.value || "").trim(),
+        stuck: (form.stuck.value || "").trim(),
+        tried: (form.tried.value || "").trim(),
+        thisweek: (form.thisweek.value || "").trim(),
+        wechatContact: (form.wechatContact.value || "").trim(),
       };
       summaryEl.textContent = buildSummary(data);
       form.hidden = true;
@@ -96,7 +89,8 @@
       cta.hidden = true;
       form.hidden = false;
       form.reset();
-      form.name.focus();
+      var first = form.querySelector("select, input, textarea");
+      if (first) first.focus();
     });
   }
 
@@ -113,16 +107,6 @@
         .catch(function () {
           showToast("复制失败，请手动选择文字");
         });
-    });
-  });
-
-  document.querySelectorAll("[data-path]").forEach(function (link) {
-    link.addEventListener("click", function () {
-      var path = link.getAttribute("data-path");
-      var select = document.getElementById("path");
-      if (select && path) {
-        select.value = path;
-      }
     });
   });
 

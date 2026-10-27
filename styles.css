@@ -244,6 +244,15 @@ code {
   background: var(--accent-soft);
 }
 
+.section-soft .btn-ghost {
+  border-color: rgba(0, 48, 74, 0.22);
+  color: var(--navy);
+}
+
+.section-soft .btn-ghost:hover {
+  background: var(--accent-soft);
+}
+
 .wechat-cta .btn-ghost {
   border-color: rgba(240, 239, 233, 0.35);
   color: var(--paper);
@@ -877,5 +886,135 @@ code {
 @media (min-width: 960px) {
   .case-meta {
     gap: 0.65rem;
+  }
+}
+
+/* ---- 2026-10-27 product pivot: B primary + 99 diagnosis ---- */
+
+.hero-note {
+  margin: 1.1rem 0 0;
+  font-size: 0.88rem;
+  color: rgba(240, 239, 233, 0.55);
+}
+
+.nav-secondary {
+  color: var(--ink-muted) !important;
+  font-size: 0.9rem;
+}
+
+.offer-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.offer-card {
+  background: var(--white);
+  border: 1px solid rgba(35, 52, 62, 0.08);
+  border-radius: calc(var(--radius) + 4px);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.offer-card-main {
+  background: linear-gradient(180deg, #fff 0%, #f7fafb 100%);
+  border-color: rgba(57, 113, 139, 0.28);
+}
+
+.offer-card h3 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 400;
+  color: var(--navy);
+}
+
+.offer-card > p {
+  margin: 0;
+  color: var(--ink-muted);
+}
+
+.offer-card .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.section-soft {
+  background: var(--paper-soft);
+  border-top: 1px solid rgba(35, 52, 62, 0.06);
+  border-bottom: 1px solid rgba(35, 52, 62, 0.06);
+}
+
+.consult-row {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  background: var(--white);
+  border: 1px solid rgba(35, 52, 62, 0.08);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.consult-cta .path-price {
+  margin-bottom: 0.85rem;
+}
+
+.price-card-secondary {
+  opacity: 0.92;
+  background: var(--paper-soft);
+}
+
+.price-card.featured-secondary {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 1px rgba(0, 48, 74, 0.35), var(--shadow);
+}
+
+.price-ribbon.soft {
+  background: var(--navy);
+}
+
+.price-amount-sm {
+  font-size: 1.35rem !important;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.35rem;
+}
+
+.price-sep {
+  color: var(--ink-muted);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+
+.pricing-grid-4 {
+  grid-template-columns: 1fr;
+}
+
+.case-card strong {
+  color: #9ec5d6;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .offer-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+
+  .consult-row {
+    grid-template-columns: 1.2fr 0.8fr;
+    padding: 1.75rem 2rem;
+  }
+
+  .pricing-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .pricing-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
